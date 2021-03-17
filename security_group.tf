@@ -42,11 +42,11 @@ resource "aws_security_group" "jenkins-sg" {
     cidr_blocks = [var.external_ip]
   }
   ingress {
-    description = "Allow anyone on port 8080 "
-    from_port   = 8080
-    protocol    = "tcp"
-    to_port     = 8080
-    cidr_blocks = [aws_security_group.lb-sg.id]
+    description     = "Allow anyone on port 8080 "
+    from_port       = 8080
+    protocol        = "tcp"
+    to_port         = 8080
+    security_groups = [aws_security_group.lb-sg.id]
   }
   ingress {
     description = "Allow traffic from us-west-2"
