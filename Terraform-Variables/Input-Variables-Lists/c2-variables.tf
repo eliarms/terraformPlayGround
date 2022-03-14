@@ -17,9 +17,3 @@ variable "ec2_instance_count" {
   type = number 
   default = 1
 }
-
-variable "ec2_instance_type" {
-  description = "EC2 INSTANCE TYPE"
-  type = list(string) 
-  default = ["t3.micro", "t3.small", "t3.large"]
-}
