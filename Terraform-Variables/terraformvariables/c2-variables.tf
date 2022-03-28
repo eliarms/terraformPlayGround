@@ -10,6 +10,10 @@ variable "ec2_ami_id" {
   description = "AMI ID"
   type = string 
   default = "ami-047a51fa27710816e" #AMAZON LINUX 
+  validation {
+    condition = length(var.ec2_ami_id) > 4 && substr(var.ec2_ami_id,0,4) == "ami-"
+    error_message = "The EC2_AMI_ID must be a valid AMI ID, starting with \"ami-\"." 
+  }
 }
 
 variable "ec2_instance_count" {

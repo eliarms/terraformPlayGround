@@ -6,8 +6,8 @@ resource "aws_instance" "my-ec2-vm" {
   instance_type          = var.ec2_instance_type[0]
   availability_zone      = "us-east-1a"
   key_name               = "terraform-key"
-  count = var.ec2_instance_count
-  vpc_security_group_ids = [aws_security_group.vpc-web-sg.id,aws_security_group.vpc-ssh-sg.id ]
+  count                  = var.ec2_instance_count
+  vpc_security_group_ids = [aws_security_group.vpc-web-sg.id, aws_security_group.vpc-ssh-sg.id]
   user_data              = <<-EOF
     #! /bin/bash
     sudo yum update -y
@@ -20,6 +20,6 @@ resource "aws_instance" "my-ec2-vm" {
 
   tags = {
     "Name" = "web"
-     
+
   }
 }
